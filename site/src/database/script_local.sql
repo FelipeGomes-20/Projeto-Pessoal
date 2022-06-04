@@ -1,4 +1,4 @@
-CREATE DATABASE Ecoffee;
+/* CREATE DATABASE Ecoffee;
 USE Ecoffee;
 
 create table empresa (idEmpresa int primary key auto_increment,
@@ -49,4 +49,51 @@ insert into setor (nome_area,qtd_sensores,fk_empresa) values('A1','4','1000');
 
 insert into sensor (fk_setor) values(2000);
 
-insert into historico_monitoramento(fk_sensor,temperatura,umidade) values(10000,3,0);
+insert into historico_monitoramento(fk_sensor,temperatura,umidade) values(10000,3,0); */
+
+create database Rams;
+use Rams;
+
+create table jersey(
+id_numero int primary key not null auto_increment,
+numero int
+);
+
+create table jogador_ataque(
+id_jogadorA int primary key not null auto_increment,
+nome_jogador varchar(45),
+fk_numero int,
+foreign key (fk_numero) references jersey (id_numero),
+posicao varchar(40),
+passe int,
+recepcao int,
+towchdowns int,
+jardas_corridas int,
+OverAll_madden int,
+salario decimal
+);
+
+create table jogador_defesa(
+id_jogadorD int primary key not null auto_increment,
+nome_jogador varchar(45),
+fk_numero int,
+foreign key (fk_numero) references jersey (id_numero),
+posicao varchar(40),
+tackle int,
+interceptacao int,
+sack int,
+OverAll_madden int,
+salario decimal
+);
+
+create table usuario(
+id_usuario int primary key not null auto_increment,
+nome_usuario varchar(45),
+email varchar(45),
+senha varchar(30),
+idade int,
+fk_jogador_ataque int,
+foreign key (fk_jogador_ataque) references jogador_ataque (id_jogadorA),
+fk_jogador_defesa int,
+foreign key (fk_jogador_defesa) references jogador_defesa (id_jogadorD)
+);

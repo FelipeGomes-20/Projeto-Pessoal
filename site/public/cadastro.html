@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./imgs/site-institucional/logo.png" />
+    <link rel="shortcut icon" href="imgs/gifLOGO.gif" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,24 +16,27 @@
   </head>
 
   <body>
-    <div class="header">
+    <header>
       <div class="container">
-        <img class="logo" src="./imgs/Icones/logo-ofc.png" />
-        <ul class="navbar">
-          <li><a href="./index.html">Início</a></li>
-          <li><a href="./simulador.html">Simulador</a></li>
-          <li><a href="./login.html" href="">Entrar</a></li>
-          <li>
-            <a class="now" href="./cadastro.html"
-              ><img
-                src="./imgs/Icones/grao-de-cafe.png"
-                class="now_img"
-              />Cadastro</a
-            >
-          </li>
-        </ul>
+
+          <a href="./index.html">
+              <img src="imgs/gifLOGO.gif" id="logo_img">
+          </a>
+
+          <ul class="navbar">
+
+              <li>
+                  <a href="./simulador.html">História</a>
+              </li>
+
+              <li>
+                  <a href="./login.html">Entrar</a>
+              </li>
+              <li class="agora"> <img src="imgs/icon/bolaFA.png" class="agora_img"> Cadastro
+              </li>
+          </ul>
       </div>
-    </div>
+  </header>
     <div class="banner_cadastro">
       <div class="card_cadastro_modal" id="modal_cadastro">
         <h1>Cadastro feito com sucesso !!!</h1>
@@ -61,9 +64,9 @@
 
             <div class="validacao_cadastro">
               <label for="token_input">
-                <span>Token:</span>
+                <span>Idade:</span>
               </label>
-              <input type="text" id="token_input" class="input_cadastro" />
+              <input type="number" id="token_input" class="input_cadastro" />
               <small id="validacao_token"> </small>
             </div>
 
@@ -114,9 +117,10 @@
     </div>
     <div class="footer">
       <div class="container">
-        <h4>&copy; E-Coffee</h4>
+         Developed by Felipe Gomes<br>
+         Aluno SPTECH&copy;2022
       </div>
-    </div>
+  </div>
   </body>
 </html>
 
