@@ -78,6 +78,7 @@ li:hover{
   height: 90vh;
   display: flex;
   background-image: url(/site/public/imgs/banner.png);
+  border-bottom: 2px solid black;
 }
 
 .slogan .container{

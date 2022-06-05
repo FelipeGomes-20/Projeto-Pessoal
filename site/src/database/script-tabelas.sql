@@ -1,4 +1,4 @@
-CREATE DATABASE Ecoffee;
+/* CREATE DATABASE Ecoffee;
 USE Ecoffee;
 
 create table empresa (idEmpresa int primary key IDENTITY(1,1),
@@ -41,4 +41,4 @@ data_hora datetime default current_timestamp,
 temperatura decimal,
 umidade decimal,
 fk_sensor int,
-foreign key (fk_sensor) references sensor (idSensor));
+foreign key (fk_sensor) references sensor (idSensor)); */

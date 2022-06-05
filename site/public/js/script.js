@@ -1,4 +1,4 @@
-function calcular() {
+/* function calcular() {
     var peso_saca = 60.0
     var producao_cafeeiro = 2.5
     var preco = Number(input_preco_saca.value)
@@ -45,7 +45,7 @@ function calcular() {
 
 function recomecar() {
     window.location = "simulador.html"
-}
+} */
 
 
 

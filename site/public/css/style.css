@@ -76,14 +76,7 @@ li:hover{
 
 /* Banner das telas*/
 
-.banner_simulador {
-  background-image: url(./../imgs/site-institucional/Grao-de-cafe.jpg);
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  height: 80vh;
-  padding: 15vh 5vh;
-}
+
 
 .banner_login {
   background-image: url(./../imgs/site-institucional/Grao-de-cafe.jpg);
@@ -102,16 +95,6 @@ li:hover{
   align-items: center;
   height: 90vh;
   padding: 10vh 5vh;
-}
-
-.banner_simulador .container {
-  height: 500px;
-  display: flex;
-  align-items: center;
-}
-
-.banner_simulador .container.simulador {
-  justify-content: center;
 }
 
 .banner_login .contenier.login {
@@ -450,11 +433,6 @@ button:hover {
 }
 /* Output javascrpt*/
 
-.card_simulador .output_javascript {
-  display: flex;
-  flex-direction: column;
-}
-
 .output_javascript {
   margin: 0;
   padding: 0;
@@ -515,21 +493,22 @@ button:hover {
   border-bottom: 1px solid;
 }
 
-.btn_js_simulador {
-  margin-top: 10px;
-  color: #003594;
-  background-color: #ffffff;
-  border: 2px solid #003594;
-  border-radius: 20px;
-  width: 40%;
-  padding: 10px 10px;
-  font-size: 18px;
+summary{
+  cursor: pointer;
   font-weight: bolder;
 }
 
-.btn_js_simulador:hover {
-  background-color: #87994b;
-  cursor: pointer;
+details img{
+  width: 500px;
+}
+
+details {
+  text-align: center;
+}
+
+details p{
+  width: 80%;
+  margin-left: 10%;
 }
 
 /*Cadastro de usuario dentro da dashboard*/
