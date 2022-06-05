@@ -161,28 +161,87 @@ li:hover{
 /* ------------------------- */
 
 /* cadastro */
-.card_cadastro_modal {
+/* .card_cadastro_modal1 {
   background-color: #f7f3f3;
   color: #003594;
-  width: 70em;
-  height: 75%;
+  width: fit-content;
+  height: 500px;
   display: none;
   border: 2px solid #003594;
   border-radius: 40px;
+  z-index: 1000;
+  position: absolute;
+  padding: 40px;
 }
+
+.card_cadastro_modal2 {
+  background-color: #f7f3f3;
+  color: #003594;
+  width: fit-content;
+  height: 500px;
+  display: none;
+  border: 2px solid #003594;
+  border-radius: 40px;
+  z-index: 1000;
+  position: absolute;
+  padding: 40px;
+}
+
+.card_cadastro_modal1 img{
+  width: 300px;
+  cursor: pointer;
+  margin-top: 10%;
+}
+
+.card_cadastro_modal2 img{
+  width: 300px;
+  cursor: pointer;
+  margin-top: 10%;
+} */
 
 .card_cadastro {
   background-color: #f7f3f3;
   padding-block-start: 0;
   color: #003594;
   width: 60%;
-  height: 75%;
+  height: 90%;
   display: flex;
   border: 2px solid #003594;
   border-radius: 40px;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: flex-start;
+}
+
+.jogadores{
+  width: 60%;
+  height: fit-content;
+  margin-left: 20%;
+  margin-bottom: 3vh;
+  background-color: #f7f3f3;
+  border:4px #003594 solid;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+select {
+  border: 2px solid #003594;
+}
+
+.jogadores img {
+  width: 400px;
+}
+
+.jogadores p {
+  font-size: 20px;
+  color: #025bff;
+  font-weight: 900;
+  text-align: center;
+}
+
+.card_cadastro select {
+  width: 200px;
 }
 
 .cadastro_direito {
@@ -509,6 +568,10 @@ details {
 details p{
   width: 80%;
   margin-left: 10%;
+}
+
+details h3 {
+  color: #003594;
 }
 
 /*Cadastro de usuario dentro da dashboard*/

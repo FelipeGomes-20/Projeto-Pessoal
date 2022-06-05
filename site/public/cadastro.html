@@ -37,11 +37,8 @@
           </ul>
       </div>
   </header>
+
     <div class="banner_cadastro">
-      <div class="card_cadastro_modal" id="modal_cadastro">
-        <h1>Cadastro feito com sucesso !!!</h1>
-        <button onclick="btn_login()" class="btn_cadastro"></button>
-      </div>
 
       <div class="card_cadastro">
         <div class="titulo_cadastro">
@@ -62,14 +59,6 @@
               <small id="validacao_nome"></small>
             </div>
 
-            <div class="validacao_cadastro">
-              <label for="token_input">
-                <span>Idade:</span>
-              </label>
-              <input type="number" id="token_input" class="input_cadastro" />
-              <small id="validacao_token"> </small>
-            </div>
-
             <div class="validacao_cadastro" class="sucess">
               <label for="email_cadastro_input">
                 <span>Email:</span>
@@ -82,6 +71,14 @@
               <small id="validacao_email"> </small>
             </div>
           </form>
+          <p>Jogador ataque</p>
+          <select id="select_offense" onclick="alterar_atq()">
+            <option value="nada"></option>
+           <option value="1">Mathew Stafford # 9</option>
+           <option value="2">Kupper Kup # 10</option>
+           <option value="3">Odell Beckham Jr. # 3</option> 
+          </select> <br>
+          <small id="validacao_select1"> </small>
         </div>
       
         <div class="cadastro_direito">
@@ -102,34 +99,97 @@
               <small id="validacao_senha2"> </small>
             </div>
           </form>
-          <button
+
+          <p>Jogador defesa</p>
+          <select id="select_defense" onclick="alterar_def()">
+            <option value="nada"></option>
+            <option value="4">Aaron Donald # 99</option>
+            <option value="5">Von Miller # 40</option>
+            <option value="6">Jalen Ramsey # 5</option> 
+           </select> 
+           <small id="validacao_select2"> </small>
+          
+        </div>
+        <button
             class="btn_cadastro"
             onclick="cadastrar_input()"
             type="button"
           >
             Cadastrar
           </button>
-        </div>
       </div>
-      <div class="icon_cadastro">
-        <img src="./imgs/Icones/icon-input.png" alt="" />
-      </div>
+ 
     </div>
+
+    <div class="jogadores">
+
+      <div id="jogAtaque">
+        <p>Jogador Ataque</p>
+        <img src="#">
+      </div>
+      
+      <div id="jogDefesa">
+        <p>Jogador Defesa</p>
+        <img src="#">
+      </div>
+
+    </div>
+
+
     <div class="footer">
       <div class="container">
          Developed by Felipe Gomes<br>
          Aluno SPTECH&copy;2022
       </div>
   </div>
+
+
   </body>
 </html>
 
 <script>
-  Erro_Validação = 0;
+
+Erro_Validação = 0
+
+  function alterar_atq(){
+    var ataque = select_offense.value
+
+    if(ataque == "1"){
+      jogAtaque.innerHTML = "<p>Jogador Ataque</p><img src='https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/12483.png&w=350&h=254'>"
+
+    } else if(ataque == "2"){
+      jogAtaque.innerHTML = "<p>Jogador Ataque</p><img src='https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/2977187.png&w=350&h=254'>"
+
+    } else if(ataque == "3") {
+      jogAtaque.innerHTML = "<p>Jogador Ataque</p><img src='https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/16733.png&w=350&h=254'>"
+
+    } else {
+      jogAtaque.innerHTML = "<p>Jogador Ataque</p>"
+    }
+  }
+
+  function alterar_def(){
+    var defesa = select_defense.value
+    
+    if(defesa == "4"){
+      jogDefesa.innerHTML = "<p>Jogador Defesa</p><img src='https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/16716.png&w=350&h=254'>"
+
+    } else if(defesa == "5"){
+      jogDefesa.innerHTML = "<p>Jogador Defesa</p><img src='https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/13976.png&w=350&h=254'>"
+
+    } else if(defesa == "6"){
+      jogDefesa.innerHTML = "<p>Jogador Defesa</p><img src='https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/3045373.png&w=350&h=254'>"
+
+    } else {
+      jogDefesa.innerHTML = "<p>Jogador Defesa</p>"
+    }
+  }
 
   function cadastrar_input() {
     //Nome usuario
     var nome_usuario = nome_usuario_input.value;
+    var ataque = select_offense.value;
+    var defesa = select_defense.value;
 
     if (nome_usuario == "") {
       validacao_nome.innerHTML = `<span style="color: red">Preencha este campo para prosseguir</span>`;
@@ -141,17 +201,6 @@
       Erro_Validação++;
     } else {
       validacao_nome.innerHTML = `Valido`;
-    }
-       /* --------------------------------------------------------------------------------------- */
-    //token
-
-    var token = token_input.value;
-
-    if(token !== ''){
-      validacao_token.innerHTML = `Valido`;
-    }
-    else{
-      validacao_token.innerHTML = `<span style="color: red">Preencha este campo para prosseguir</span>`
     }
 
    
@@ -203,15 +252,45 @@
     }
 
     /* --------------------------------------------------------------------------------------- */
+    if(ataque == "nada"){
+      validacao_select1.innerHTML = `<span style="color: red">Selecione o jogador</span>`;
+      Erro_Validação++;
+      
+    } else {
+      if(ataque == "1"){
 
+      } else if(ataque == "2"){
+
+      } else if(ataque == "3") {
+
+      }
+      validacao_select1.innerHTML = `<span style="color: green">Válido</span>`;
+
+
+    }
+
+    if(defesa == "nada"){
+      validacao_select2.innerHTML = `<span style="color: red">Selecione o jogador</span>`;
+      Erro_Validação++;
+
+    } else {
+      if(defesa == "4"){
+
+      } else if(defesa == "5"){
+
+      } else if(defesa == "6"){
+
+      }
+    validacao_select2.innerHTML = `<span style="color: green">Válido</span>`;
+     
+    }
+
+    
+    
     /* Se cadastro Validado */
 
     if (Erro_Validação == 0) {
-    
-
-      fetchcadastro();
-
-       window.location.href = "login.html"; 
+      modal_cadastro1.style.display = "block"
     } else {
       Erro_Validação = 0;
     }
