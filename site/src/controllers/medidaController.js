@@ -22,6 +22,8 @@ function buscarUltimasMedidas(req, res) {
 }
 
 
+
+
 function buscarMedidasEmTempoReal(req, res) {
 
     var idAquario = req.params.idAquario;
@@ -41,7 +43,7 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
-function relatorio(req, res) {
+ function relatorio(req, res) {
 
     var idAquario = req.params.idAquario;
     var dia_inicio= req.params.dia_inicio;
@@ -62,11 +64,36 @@ function relatorio(req, res) {
         console.log("Houve um erro ao buscar as medidas de relatorio.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
-}
+
+    
+} 
+
+function totUsers(req, res) {
+
+    var idAquario = req.params.idAquario;
+
+    console.log(`Recuperando total de usuarios`);
+
+    medidaModel.totUsers(idAquario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar quantidade de usuários.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+    
+} 
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    relatorio
+    totUsers,
+    relatorio 
 
 }

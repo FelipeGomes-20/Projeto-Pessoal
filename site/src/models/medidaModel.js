@@ -11,11 +11,8 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
                     where fk_sensor = ${idAquario}
                     order by idMonitoramento desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select  idMonitoramento ,temperatura, umidade, data_hora,
-                        DATE_FORMAT(data_hora,'%H:%i:%s') as data_grafico
-                    from historico_monitoramento
-                    where fk_sensor = ${idAquario}
-                    order by idMonitoramento desc limit ${limite_linhas}`;
+        instrucaoSql = `select nome_jogador, count(*) as votos from usuario join jogador_ataque on id_jogadorA = fk_jogador_ataque 
+        group by id_jogadorA;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -23,6 +20,21 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+}
+
+function totUsers(idAquario) {
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select count(id_usuario) from usuario;`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select count(id_usuario) from usuario;`;
+
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
 }
 
 function buscarMedidasEmTempoReal(idAquario) {
@@ -35,9 +47,8 @@ function buscarMedidasEmTempoReal(idAquario) {
                     order by idMonitoramento desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select  idMonitoramento,temperatura,umidade,
-                        DATE_FORMAT(data_hora,'%H:%i:%s') as data_grafico, fk_sensor from historico_monitoramento where fk_sensor = ${idAquario} 
-                    order by idMonitoramento desc limit 1`;
+        instrucaoSql = `select nome_jogador, count(*) as votos from usuario join jogador_ataque on id_jogadorA = fk_jogador_ataque 
+        group by id_jogadorA;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -74,5 +85,6 @@ console.log("Executando a instrução SQL: \n" + instrucaoSql);
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
+    totUsers,
     relatorio
 }
