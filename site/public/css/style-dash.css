@@ -54,12 +54,10 @@ body {
 /* Secção 1 da pagina (Gráficos e "monitores de desempenho") */
 
 #section1_dash {
-  height: 70vh;
+  height: 60vh;
   width: 90%;
-  display: flex;
   margin: auto;
   margin-top: 2%;
-  flex-direction: column;
 }
 
 .Dashboard {
@@ -67,16 +65,17 @@ body {
   display: flex;
   /* align-items: center; */
   width: 100%;
-  margin-bottom: 10%;
+
 }
 
 .div_grafico {
-  height: 40vh;
+  height: 45vh;
   width: 65%;
   padding: 1%;
-  border: solid 3px #976b59;
+  border: solid 3px #003594;
   background-color: #ffffff;
   border-radius: 40px;
+  font-size: 20px;
 }
 
 .Pai_Situacao {

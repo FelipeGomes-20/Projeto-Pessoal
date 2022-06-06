@@ -15,6 +15,8 @@
     />
     <script src="./js/Script_dash.js"></script>
     <script src="js/funcoes.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <!-- <body onload="validarSessao()"> -->
@@ -46,6 +48,7 @@
 
     <div id="barra_dash">
       <h1 class="titulo_dash">DashBoard</h1>
+      <h1 id="total_users">Total de usuários:</h1>
     </div>
 
 
@@ -54,24 +57,16 @@
 
       <div class="Dashboard">
         <div class="div_grafico">
-          <canvas id="canvas_grafico" height="100%"></canvas>
+          <canvas id="myChart"></canvas>
         </div>
 
         <!-- Divs ocupando 50% height da tela com 1 grafico e 2 balão em column -->
 
         <div class="div_grafico">
-          <canvas id="GraficoU" height="100%"></canvas>
+          <canvas id="myChart2"></canvas>
         </div>
       </div>
 
-
-    </section>
-
-    <!-- Div com o titulo e select  -->
-
-    <!-- Secção 2 da pagina Relatorio sobre as informações coletadas do sensor-->
-
-    <section id="section2_dash">
 
     </section>
 
@@ -86,9 +81,73 @@
 </body>
 </html>
 
-<script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+
 
 <script>
+
+const labels = [
+      'Mathew Stafford',
+      'Kupper Kupp',
+      'Odell Beckham Jr.',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Jogadores ataque',
+        backgroundColor: ['yellow', 'blue', 'green'],
+        borderColor: 'black',
+        data: [12, 10, 20],
+      },
+    ]
+
+    };
+
+    const labels2 = [
+    'Aaron Donald',
+    'Von Miller',
+    'Jalen Ramsey',
+  ];
+
+  const data2 = {
+    labels: labels2,
+    datasets: [{
+      label: 'Jogadores defesa',
+      backgroundColor: ['red', 'orange', 'purple'],
+      borderColor: 'black',
+      data: [15, 9, 21],
+    },
+
+  ]
+
+  };
+  
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {}
+    };
+
+    const config2 = {
+      type: 'bar',
+      data: data2,
+      options: {}
+    };
+
+
+  </script>
+
+  <script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    const myChart2 = new Chart(
+      document.getElementById('myChart2'),
+      config2
+    );
+
 let proximaAtualizacao;
 
 /* window.onload = validarSessao();
