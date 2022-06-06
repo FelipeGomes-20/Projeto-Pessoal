@@ -111,11 +111,11 @@
               sessionStorage.EMAIL_USUARIO = json.email;
               sessionStorage.NOME_USUARIO = json.nome_usuario;
               sessionStorage.ID_USUARIO = json.idUsuario;
-              sessionStorage.FUNCAO = json.funcao;
-              sessionStorage.TOKEN = json.fk_empresa;
+              sessionStorage.ATAQUE = json.fk_jogador_ataque;
+              sessionStorage.DEFESA = json.fk_jogador_defesa;
 
               setTimeout(function () {
-                window.location = "./cards.html";
+                window.location = "./dashboard.html";
               }, 1000); // apenas para exibir o loading
             });
           } else {

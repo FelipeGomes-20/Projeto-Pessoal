@@ -65,7 +65,7 @@ nome_jogador varchar(45),
 fk_numero int,
 foreign key (fk_numero) references jersey (id_numero),
 posicao varchar(40),
-OverAll_madden int
+rating int
 );
 
 create table jogador_defesa(
@@ -74,7 +74,7 @@ nome_jogador varchar(45),
 fk_numero int,
 foreign key (fk_numero) references jersey (id_numero),
 posicao varchar(40),
-OverAll_madden int
+rating int
 );
 
 create table usuario(
@@ -88,18 +88,15 @@ fk_jogador_defesa int,
 foreign key (fk_jogador_defesa) references jogador_defesa (id_jogadorD)
 );
 
-insert into jersey (numero) values (9), (3), (10), (25), (99), (40), (5);
+insert into jersey (numero) values (9), (3), (10), (99), (40), (5);
 
-insert into jogador_ataque (nome_jogador , fk_numero , posicao, OverAll_madden)
+insert into jogador_ataque (nome_jogador , fk_numero , posicao, rating)
 					values ('Matthew Stafford' , 1 , 'QB' , 83),
-							('Odell Beckham Jr.' , 2 , 'WR' , 86),
 							('Kooper Kupp' , 3 , 'WR' , 98),
-                            ('Sony Michel' , 4 , 'RB' , 77);
+							('Odell Beckham Jr.' , 2 , 'WR' , 86);
+							
             
-insert into jogador_defesa (nome_jogador , fk_numero , posicao, OverAll_madden)
-					values ('Aaron Donald' , 5 , 'DL' , 99),
-							('Von Miller' , 6 , 'LB' , 93),
-							('Jalen Ramsey' , 7 , 'CB' , 99);
-
-insert into usuario (nome_usuario , email , senha , fk_jogador_ataque , fk_jogador_defesa)
-				values ('Felipe' , 'felipe@gmail.com' , '12345678' , 2 , 3);
+insert into jogador_defesa (nome_jogador , fk_numero , posicao, rating)
+					values ('Aaron Donald' , 4 , 'DL' , 99),
+							('Von Miller' , 5 , 'LB' , 93),
+							('Jalen Ramsey' , 6 , 'CB' , 99);
