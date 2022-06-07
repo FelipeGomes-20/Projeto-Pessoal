@@ -315,6 +315,22 @@ header span {
   color: #753a22;
 }
 
+img{
+  width: 400px;
+  height: 400px;
+  margin-right: 5vw;
+  margin-top: 5vh;
+  border-radius: 10px;
+}
+
+#SB1:hover{
+  transform: scale(1.10);
+}
+
+#SB2:hover{
+  transform: scale(1.10);
+}
+
 /* secção 2 da pagina (relatório) */
 
 
@@ -327,7 +343,7 @@ header span {
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-top: 90vh;
+  margin-top: 10vh;
 }
 
 .footer .container{

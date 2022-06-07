@@ -71,7 +71,13 @@
 
     </section>
 
+<div id="jogadores" style="margin: 120vh 0 0 20vw;">
+   <h1>Títulos (a partir dos anos 2000)</h1>
+    <button onclick="selecionar()">Mostrar</button> 
+</div>
 
+    <div id="result" style="margin: 2vh 5vh 2vh 20vw; float: left;"></div>
+    <div id="result2" style="margin: 2vh 0 2vh 0;"></div>
 
     <div class="footer">
       <div class="container">
@@ -107,7 +113,7 @@ window.onload = obterDadosGrafico(1);
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+                
 
                     plotarGrafico(resposta, idAquario);
                 });
@@ -301,5 +307,30 @@ window.onload = obterDadosGrafico(1);
             });
 
     }
+
+    var lista_ano = ["2000:", "2001:", "2002:", "2003:", "2004:", "2005:", "2006:", "2007:", "2008:", "2009:", "2010:", "2011:", "2012:", "2013:", "2014:", "2015:", "2016:", "2017:", "2018:", "2019:", "2020:", "2021:", "2022:",]
+
+    var lista_titulos = ["Super Bowl (XXXIV) 🏆", "National Football Conference 🏆","Nenhum título", "National Football Conference West 🏆","Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "Nenhum título", "National Football Conference West 🏆", "National Football Conference West 🏆", "Nenhum título", "Nenhum título", "National Football Conference West 🏆", "National Football Conference West & Super Bowl (LVI) 🏆"]
+
+   function selecionar(){
+
+    result.innerHTML = ""
+    result.innerHTML = "<b>ANO</b><br>"
+       for(var contador = 0; contador < lista_ano.length; contador++){
+        result.innerHTML += `${lista_ano[contador]}<br>`
+       }
+
+       result2.innerHTML = "" 
+       result2.innerHTML = "<b>Títulos</b><br>"
+
+       var contador = 0
+       while(contador < lista_titulos.length){
+        result2.innerHTML += `${lista_titulos[contador]}<br>`
+        contador++
+       }
+       result2.innerHTML += "<img src='https://s.hdnux.com/photos/42/75/24/9164061/3/1200x0.jpg' id= 'SB1'>" 
+
+       result2.innerHTML += "<img src='https://s2.glbimg.com/ROyKmHGb-KIOeqmqAX3lwJU1C-M=/0x0:1316x877/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/Y/z/XWGR5KTsGdnwRtbK5A6A/gettyimages-1370409622.jpg' id= 'SB2'>"
+   }
 
 </script>

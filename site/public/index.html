@@ -43,7 +43,7 @@
   </header>
 
 
-      <div class="slogan">
+      <div class="slogan" style="background-image: url(imgs/banner.png);">
         <div class="container">
           <section class="banner_slide"> 
             <div class="slider">
@@ -66,9 +66,7 @@
                     <div class="slide">
                         <img class="img_slide" src="https://images.alphacoders.com/121/1210797.jpg" alt="" />
                     </div>
-                </div>
-    
-                
+                </div>                  
             </div> 
         </section>
         </div>
@@ -120,13 +118,14 @@
 </html>
 
 <script>
-      var counter = 1;
+   var counter = 1;
 setInterval(function(){
     document.getElementById('radio' + counter).checked = true;
     counter++;
     if(counter > 4){
         counter = 1
     }
-}, 4000);
+}, 4000); 
+
 
 </script>
