@@ -133,15 +133,15 @@ window.onload = obterDadosGrafico(1);
         console.log('iniciando plotagem do gráfico...');
 
         var dados2 = {
-            labels: [],
+            labels: ['Aaron Donald' , 'Von Miller' , 'Jalen Ramsey'],
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: 'Jogadores Ataque',
+                    label: 'Jogadores Defesa',
                     borderColor: 'black',
                     backgroundColor: ['red','blue','orange'],
                     fill: true,
-                    data: []
+                    data: [13 , 8 , 8]
                 },
               ]
         };
@@ -152,7 +152,7 @@ window.onload = obterDadosGrafico(1);
 
             {
                     yAxisID: 'y-temperatura',
-                    label: 'Jogadores Defesa',
+                    label: 'Jogadores Ataque',
                     borderColor: 'black',
                     backgroundColor: ['red','blue','orange'],
                     fill: true,
@@ -166,14 +166,14 @@ window.onload = obterDadosGrafico(1);
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             dados.labels.push(registro.nome_jogador);
-            dados2.labels.push(registro.nome_jogador);
+            /* dados2.labels.push(); */
             dados.datasets[0].data.push(registro.votos);
-            dados2.datasets[0].data.push(registro.votos);
+            /* dados2.datasets[0].data.push(); */
         }
 
         console.log(JSON.stringify(dados, dados2));
 
-        var ctx = myChart.getContext('2d');
+        var ctx = myChart2.getContext('2d');
         window.grafico_linha = Chart.Doughnut(ctx, {
             data: dados2,
             options: {
@@ -216,8 +216,8 @@ window.onload = obterDadosGrafico(1);
         });
 
 
-        var ctx = myChart2.getContext('2d');
-        window.grafico_linha2 = Chart.Bar(ctx, {
+        var ctx = myChart.getContext('2d');
+        window.grafico_linha2 = Chart.Doughnut(ctx, {
             data: dados,
             options: {
                 responsive: true,
@@ -230,7 +230,7 @@ window.onload = obterDadosGrafico(1);
                 },
                 scales: {
                     yAxes: [{
-                        type: 'linear',
+                        type: '',
                         display: true,
                         position: 'left',
                         id: 'y-temperatura',
@@ -240,7 +240,7 @@ window.onload = obterDadosGrafico(1);
                             min: 0
                         }
                     }, {
-                        type: 'linear',
+                        type: '',
                         display: false,
                         position: 'right',
                         id: 'y-umidade',
@@ -322,12 +322,17 @@ window.onload = obterDadosGrafico(1);
 
        result2.innerHTML = "" 
        result2.innerHTML = "<b>Títulos</b><br>"
-
+/* ------------------------------------------------------------ */
        var contador = 0
        while(contador < lista_titulos.length){
-        result2.innerHTML += `${lista_titulos[contador]}<br>`
+        if(lista_titulos[contador].indexOf("Nenhum")){
+            result2.innerHTML += `<span style= 'color: blue'>${lista_titulos[contador]}</span><br>`
+        } else{
+            result2.innerHTML += `<span style= 'color: red'>${lista_titulos[contador]}</span><br>`
+        }
         contador++
        }
+
        result2.innerHTML += "<img src='https://s.hdnux.com/photos/42/75/24/9164061/3/1200x0.jpg' id= 'SB1'>" 
 
        result2.innerHTML += "<img src='https://s2.glbimg.com/ROyKmHGb-KIOeqmqAX3lwJU1C-M=/0x0:1316x877/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/Y/z/XWGR5KTsGdnwRtbK5A6A/gettyimages-1370409622.jpg' id= 'SB2'>"

@@ -15,6 +15,10 @@ body {
   align-items: center;
 }
 
+button {
+  border-radius: 20%;
+}
+
 #logo_dash {
   height: 40px;
 }
